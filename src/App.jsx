@@ -65,7 +65,7 @@ function App() {
 
       <div className="flex items-center gap-10">
 
-        <h1 className="text-5xl max-sm:text-4xl">لیست انجام ها</h1>
+        <h1 className="text-5xl max-sm:text-4xl">To Do List</h1>
         {/* -----------------------------------On Working------------------------------------ */}
         <CgDarkMode className="text-2xl cursor-pointer hover:rotate-180 transition-all delay-75" onClick={() => setDarkMode(!darkMode)}/>
 
@@ -75,7 +75,7 @@ function App() {
 
         <input  type="text" 
                 autoFocus
-                placeholder={empty === true ? "خالیه" : "بنواز"}
+                placeholder={empty === true ? "It's Empty" : "Write"}
                 className={`border border-gray-600 rounded-md px-3 py-1 outline-0 ${empty && "text-red-600 border-none bg-red-300 shadow-sm transition-all delay-75"}`} 
                 value={inputValue}
                 onChange={(e) => setinputValue(e.target.value)}
@@ -86,7 +86,7 @@ function App() {
           className="transition-all delay-50 text-lg px-3 py-1 rounded-md border-gray-600 border hover:cursor-pointer hover:bg-black hover:text-white max-[350px]:text-sm"
           onClick={addNote}>
           
-          اضاف کن
+          Add
 
         </button>
 
@@ -95,11 +95,13 @@ function App() {
       <div>
         {notes.map((note) => {
 
+          const isRTL = /[\u0600-\u06FF]/.test(note.text);
+
           return (
             <div  key={note.id} 
                   className={`bg-white my-3 p-4 rounded-xl shadow-md hover:shadow-lg hover:scale-101 transition-all duration-500 border-x-4 flex justify-between items-center gap-40 max-[500px]:gap-10 max-w-200 wrap-anywhere ${note.done ? "bg-green-50 text-gray-500 border-green-500" : "bg-white border-blue-500"} ${deleteIds.has(note.id) && "opacity-0"}`}>
           
-              <div className=" max-md:text-md md:text-xl text-wrap">
+              <div className={`max-md:text-md md:text-xl text-wrap ${isRTL ? "font-rtl" : "font-main"} `}>
                 {note.text}
               </div>
               <div className="flex justify-center items-center gap-1">
