@@ -1,5 +1,3 @@
-Created By React & Tailwind 
+# To-Do List App
 
-Written By Nekooo
-
-It's My
+A simple and responsive task management application built with React and Tailwind CSS.
