@@ -48,7 +48,7 @@ const InputBox = ({notes, setNotes, empty, setEmpty}) => {
                             />
 
                     <button 
-                            className="transition-all delay-50 text-lg px-3 py-1 rounded-md border border-blue-500 hover:cursor-pointer hover:bg-blue-500 hover:text-white"
+                            className="transition-all delay-50 text-lg px-3 py-1 rounded-md border border-gray-500 hover:cursor-pointer hover:bg-blue-500 hover:text-white hover:border-blue-500"
                             onClick={addNote}>
                     
                     Add
